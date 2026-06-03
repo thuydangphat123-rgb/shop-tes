@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blox Shop</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+}
+
+header{
+    background:linear-gradient(to right,#ff5a5a,#ff2d2d);
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.search-box{
+    background:white;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
+}
+
+.search-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.tabs{
+    display:flex;
+    gap:10px;
+    margin:15px 0;
+    flex-wrap:wrap;
+}
+
+.tab{
+    background:white;
+    padding:10px 15px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    cursor:pointer;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:120px;
+    object-fit:contain;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.price{
+    color:red;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.buy{
+    width:100%;
+    border:none;
+    background:#ff3b3b;
+    color:white;
+    padding:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+BloxShop VN
+</header>
+
+<div class="container">
+<button onclick="adminLogin()">
+🔐 Admin
+</button>
+
+<div id="adminPanel" style="display:none;margin:15px 0;">
+    <button onclick="addProduct()">
+    ➕ Thêm Acc
+    ➕ xoá acc
+    </button>
+</div>
+<div class="search-box">
+<input type="text" placeholder="Tìm acc, trái ác quỷ...">
+</div>
+
+<div class="tabs">
+<div class="tab">💰 Giá Rẻ</div>
+<div class="tab">🎮 Acc 10K</div>
+<div class="tab">💎 Acc 20K</div>
+<div class="tab">🟩 Robux</div>
+</div>
+
+<div class="products">
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+<h3>Acc Tân Thủ</h3>
+<p>Level 1000</p>
+<div class="price">3.000đ</div>
+<br>
+<button class="buy">Mua Ngay</button>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/414/414927.png">
+<h3>Acc Mid Game</h3>
+<p>Sea 2 - Race ngẫu nhiên</p>
+<div class="price">5.000đ</div>
+<br>
+<button class="buy">Mua Ngay</button>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/484/484167.png">
+<h3>Acc Sword Main</h3>
+<p>Yama + Tushita</p>
+<div class="price">7.000đ</div>
+<br>
+<button class="buy">Mua Ngay</button>
+</div>
+
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/415/415733.png">
+<h3>Acc Trái Thường</h3>
+<p>Random Fruit</p>
+<div class="price">8.000đ</div>
+<br>
+<button class="buy">Mua Ngay</button>
+</div>
+
+</div>
+
+</div>
+<script>
+let isAdmin = false;
+
+function adminLogin(){
+    let pass = prompt("Nhập mật khẩu Admin");
+
+    if(pass === "282012"){
+        isAdmin = true;
+        document.getElementById("adminPanel").style.display = "block";
+        alert("Đăng nhập thành công");
+    }else{
+        alert("Sai mật khẩu");
+    }
+}
+
+function addProduct(){
+
+    let name = prompt("Tên Acc");
+    let level = prompt("Level");
+    let price = prompt("Giá");
+
+    let product = `
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png">
+        <h3>${name}</h3>
+        <p>Level ${level}</p>
+<p class="status">Còn hàng</p>
+        <div class="price">${price}đ</div>
+        <br>
+        <button class="buy">Mua Ngay</button>
+<button onclick="editStatus(this)">Đổi trạng thái</button>
+<button onclick="deleteProduct(this)">Xóa</button>
+    </div>
+    `;
+
+    document.querySelector(".products").innerHTML += product;
+}
+function deleteProduct(btn){
+
+    if(confirm("Xóa acc này?")){
+        btn.parentElement.remove();
+    }
+
+}
+function editStatus(btn){
+
+    let status = prompt(
+        "Nhập trạng thái mới:\nCòn hàng\nHết hàng\nĐang giữ"
+    );
+
+    if(status){
+
+        let oldStatus =
+        btn.parentElement.querySelector(".status");
+
+        if(oldStatus){
+            oldStatus.innerText = status;
+        }
+
+    }
+
+}
+</script>
+</body>
+</html>
