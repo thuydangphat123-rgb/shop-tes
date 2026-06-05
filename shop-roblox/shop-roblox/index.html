@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP đạt Starboy - Acc Blox Fruit Rẻ Nhất</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">🎮 SHOP đạt Starboy</div>
+  <nav>
+    <a href="#services">Dịch Vụ</a>
+    <a href="#accounts">Mua Acc</a>
+    <a href="#topnap">Top Nạp</a>
+    <a href="#contact">Liên Hệ</a>
+  </nav>
+  <div class="header-btns">
+    <button onclick="openModal('login')">Đăng Nhập</button>
+    <button class="btn-register" onclick="openModal('register')">Đăng Ký</button>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-inner">
+uy tín số 1st &nbsp;|&nbsp;
+mua acc không đúng thông tin hoàn 100% &nbsp;|&nbsp;
+khai trương shop đạt Starboy
+  </div>
+</div>
+
+<section class="banner">
+  <div class="banner-content">
+    <h1>SHOP ACC ROBLOX<br><span>UY TÍN SỐ 1 VIỆT NAM</span></h1>
+    <p>Chuyên Mua Acc Blox Fruit • Nạp Robux • Gamepass • Cày Thuê</p>
+    <div class="banner-event">
+      <h3>🏆 ĐUA TOP NẠP THÁNG</h3>
+      <p>TOP 1: 30.000 ROBUX + 500K &nbsp;|&nbsp; TOP 2: 10.000 ROBUX + 300K &nbsp;|&nbsp; TOP 3: 5.000 ROBUX + 200K</p>
+    </div>
+    <button class="btn-main" onclick="document.getElementById('services').scrollIntoView()">NẠP THẺ NGAY 🚀</button>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2 class="section-title">⚡ DỊCH VỤ NỔI BẬT</h2>
+  <div class="card-grid" id="services-grid"></div>
+</section>
+
+<section class="section" id="accounts">
+  <h2 class="section-title">🎯 MUA ACC ROBLOX HOT</h2>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterAcc(this,'all')">Tất Cả</button>
+    <button class="filter-btn" onclick="filterAcc(this,'bloxfruit')">Blox Fruit</button>
+    <button class="filter-btn" onclick="filterAcc(this,'tuimu')">Túi Mù</button>
+    <button class="filter-btn" onclick="filterAcc(this,'game-khac')">Game Khác</button>
+  </div>
+  <div class="card-grid" id="accounts-grid"></div>
+</section>
+
+<section class="section" id="topnap">
+  <h2 class="section-title">👑 TOP NẠP THẺ THÁNG NÀY</h2>
+  <div class="top-list" id="top-list"></div>
+</section>
+
+<section class="stats-bar">
+  <div class="stat"><span class="num">1</span><span>Tháng Hoạt Động</span></div>
+  <div class="stat"><span class="num">hơn 100</span><span>Thành Viên</span></div>
+  <div class="stat"><span class="num">0</span><span>Nick Đã Bán</span></div>
+  <div class="stat"><span class="num">20</span><span>Lượt Vào Shop</span></div>
+</section>
+
+<section class="section" id="contact">
+  <h2 class="section-title">📞 LIÊN HỆ & HỖ TRỢ</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="icon">💬</div>
+      <h3>discord</h3>
+      <p>Chat trực tiếp qua tài khoản cá nhân</p>
+      <button class="btn-main">Nhắn Tin</button>
+    </div>
+    <div class="contact-card">
+      <div class="icon">📱</div>
+      <h3>Zalo</h3>
+      <p>Hỗ trợ 24/7 qua Discord</p>
+      <button class="btn-main">Liên Hệ</button>
+    </div>
+    <div class="contact-card">
+      <div class="icon">🎮</div>
+      <h3>Discord</h3>
+      <p>Tham gia server cộng đồng uy tín</p>
+      <button class="btn-main">Tham Gia</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Shop Roblox — Hoạt động 24/7 — Uy tín hàng đầu Việt Nam 🇻🇳</p>
+</footer>
+
+<!-- MODAL ĐĂNG NHẬP / ĐĂNG KÝ -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-login">
+      <h2>ĐĂNG NHẬP</h2>
+      <input type="text" placeholder="Tài khoản / Email">
+      <input type="password" placeholder="Mật khẩu">
+      <button class="btn-main" style="width:100%">ĐĂNG NHẬP</button>
+      <p style="text-align:center;margin-top:12px">
+        Chưa có tài khoản? <a href="#" onclick="switchModal('register')">Đăng ký ngay</a>
+      </p>
+    </div>
+    <div id="modal-register" style="display:none">
+      <h2>ĐĂNG KÝ</h2>
+      <input type="text" placeholder="Tên tài khoản">
+      <input type="password" placeholder="Mật khẩu">
+      <input type="password" placeholder="Nhập lại mật khẩu">
+      <button class="btn-main" style="width:100%">ĐĂNG KÝ</button>
+      <p style="text-align:center;margin-top:12px">
+        Đã có tài khoản? <a href="#" onclick="switchModal('login')">Đăng nhập</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SẢN PHẨM -->
+<div class="modal-overlay" id="product-modal-overlay" onclick="closeProductModal()">
+  <div class="modal product-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeProductModal()">✕</button>
+    <div id="product-modal-content"></div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
